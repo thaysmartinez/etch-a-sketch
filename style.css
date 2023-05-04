@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.div-row {
+  display: flex;
+  flex-direction: column;
+}
+.div-col {
+  display: flex;
+  width: 40px;
+  height: 40px;
+}
