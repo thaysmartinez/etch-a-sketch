@@ -12,6 +12,7 @@ body.appendChild(div);
 // Get reference to class container div
 const container = document.querySelector(".container");
 
+// Create sketch pad
 for (let j = 0; j < 16; j++) {
   const divRowContainer = document.createElement("div");
   divRowContainer.classList = "div-row";
