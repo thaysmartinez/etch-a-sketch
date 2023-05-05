@@ -23,3 +23,15 @@ for (let j = 0; j < 16; j++) {
     divRowContainer.appendChild(divColItem);
   }
 }
+
+const divChildren = document.querySelectorAll(".div-item");
+
+divChildren.forEach((divChild) => {
+  divChild.addEventListener(
+    "mouseover",
+    (e) => {
+      e.target.style.backgroundColor = "black";
+    },
+    false
+  );
+});
