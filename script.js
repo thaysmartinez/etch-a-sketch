@@ -13,13 +13,13 @@ body.appendChild(div);
 const container = document.querySelector(".container");
 
 for (let j = 0; j < 16; j++) {
-  const divRow = document.createElement("div");
-  divRow.classList = "div-row";
-  container.appendChild(divRow);
+  const divRowContainer = document.createElement("div");
+  divRowContainer.classList = "div-row";
+  container.appendChild(divRowContainer);
   for (let i = 0; i < 16; i++) {
-    const divCol = document.createElement("div");
-    divCol.textContent = "x";
-    divCol.classList = "div-col";
-    divRow.appendChild(divCol);
+    const divColItem = document.createElement("div");
+    // divColItem.textContent = "x";
+    divColItem.classList = "div-item";
+    divRowContainer.appendChild(divColItem);
   }
 }
