@@ -10,11 +10,12 @@ body {
 .grid-container {
   box-sizing: border-box;
   width: 960px;
+  height: 960px;
   border: 1px solid black;
   border-radius: 5px;
   padding: 5px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(16, 1fr);
   grid-gap: 2px;
 }
 
