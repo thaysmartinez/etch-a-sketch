@@ -7,11 +7,10 @@ body {
   height: 100vh;
 }
 
-.grid-container,
-.grid-8,
-.grid-16,
-.grid-32,
-.grid-64 {
+#grid,
+.grid16,
+.grid32,
+.grid64 {
   box-sizing: border-box;
   width: 960px;
   height: 960px;
@@ -22,19 +21,15 @@ body {
   grid-gap: 2px;
 }
 
-.grid-8 {
-  grid-template-columns: repeat(8, 1fr);
-}
-
-.grid-16 {
+.grid16 {
   grid-template-columns: repeat(16, 1fr);
 }
 
-.grid-32 {
+.grid32 {
   grid-template-columns: repeat(32, 1fr);
 }
 
-.grid-64 {
+.grid64 {
   grid-template-columns: repeat(64, 1fr);
 }
 

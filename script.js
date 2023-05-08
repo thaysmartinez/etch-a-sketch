@@ -1,41 +1,43 @@
 const body = document.querySelector("body");
-const divButtons = document.querySelectorAll(".btn-grid");
+const buttons = document.querySelectorAll(".btn-grid");
+const grid = document.querySelector("#grid");
 
-const div = document.createElement("div");
+function generateGrid(size = 16, cssClass = "grid16") {
+  grid.classList = `${cssClass}`;
 
-function generateGrid(cssClass, gridSize = 8) {
-  const gridTotal = gridSize * gridSize;
-
-  div.classList = `grid-container ${cssClass}`;
-  body.appendChild(div);
-  const gridContainer = document.querySelector(`.${cssClass}`);
-
-  for (let i = 0; i < gridTotal; i++) {
+  for (let i = 0; i < size * size; i++) {
     const gridItem = document.createElement("div");
     gridItem.classList = "grid-item";
-    gridContainer.appendChild(gridItem);
+    grid.appendChild(gridItem);
+  }
+}
+
+function removeGrid() {
+  while (grid.firstChild) {
+    grid.removeChild(grid.firstChild);
   }
 }
 
 function changeSize() {
-  divButtons.forEach((button) => {
+  buttons.forEach((button) => {
     button.addEventListener("click", () => {
-      div.classList.remove("grid-8,grid-16,grid-32,grid-64");
       switch (true) {
         case button.getAttribute("id") === "grid-16":
-          console.log(button.getAttribute("id"));
-          generateGrid("grid-16", 16);
+          removeGrid();
+          generateGrid(16, "grid16");
           break;
         case button.getAttribute("id") === "grid-32":
-          generateGrid("grid-32", 32);
+          removeGrid();
+          generateGrid(32, "grid32");
           break;
         case button.getAttribute("id") === "grid-64":
-          generateGrid("grid-64", 64);
+          removeGrid();
+          generateGrid(64, "grid64");
           break;
       }
     });
   });
 }
 
-generateGrid("grid-8");
+generateGrid();
 changeSize();
