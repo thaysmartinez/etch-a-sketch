@@ -1,11 +1,11 @@
 const body = document.querySelector("body");
 const divButtons = document.querySelectorAll(".btn-grid");
 
-function generateGrid(cssClass, gridSize = 16) {
+const div = document.createElement("div");
+
+function generateGrid(cssClass, gridSize = 8) {
   const gridTotal = gridSize * gridSize;
 
-  const div = document.createElement("div");
-  //   div.classList.remove("grid-container grid-16 grid-32 grid-64");
   div.classList = `grid-container ${cssClass}`;
   body.appendChild(div);
   const gridContainer = document.querySelector(`.${cssClass}`);
@@ -20,8 +20,10 @@ function generateGrid(cssClass, gridSize = 16) {
 function changeSize() {
   divButtons.forEach((button) => {
     button.addEventListener("click", () => {
+      div.classList.remove("grid-8,grid-16,grid-32,grid-64");
       switch (true) {
         case button.getAttribute("id") === "grid-16":
+          console.log(button.getAttribute("id"));
           generateGrid("grid-16", 16);
           break;
         case button.getAttribute("id") === "grid-32":
@@ -35,5 +37,5 @@ function changeSize() {
   });
 }
 
-generateGrid("grid-16");
+generateGrid("grid-8");
 changeSize();
