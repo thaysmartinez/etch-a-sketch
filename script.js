@@ -50,11 +50,20 @@ function sketch() {
     gridItem.addEventListener(
       "mouseover",
       (e) => {
-        e.target.style.backgroundColor = "black";
+        // e.target.style.backgroundColor = "black";
+        e.target.style.backgroundColor = getRandomColor();
       },
       false
     );
   });
+}
+
+function getRandomColor() {
+  // Returns a random value from array of 3 possible values
+  const choiceArray = ["#173F5F", "#20639B", "#3cAeA3", "#F6D55C", "#ED553B"];
+  var randomColor = choiceArray[Math.floor(Math.random() * choiceArray.length)];
+
+  return randomColor;
 }
 
 generateGrid();
