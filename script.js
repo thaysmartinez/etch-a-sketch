@@ -10,6 +10,7 @@ function generateGrid(size = 16, cssClass = "grid16") {
     gridItem.classList = "grid-item";
     grid.appendChild(gridItem);
   }
+  sketch();
 }
 
 function removeGrid() {
@@ -25,17 +26,34 @@ function changeSize() {
         case button.getAttribute("id") === "grid-16":
           removeGrid();
           generateGrid(16, "grid16");
+          sketch();
           break;
         case button.getAttribute("id") === "grid-32":
           removeGrid();
           generateGrid(32, "grid32");
+          sketch();
           break;
         case button.getAttribute("id") === "grid-64":
           removeGrid();
           generateGrid(64, "grid64");
+          sketch();
           break;
       }
     });
+  });
+}
+
+function sketch() {
+  const gridItems = document.querySelectorAll(".grid-item");
+
+  gridItems.forEach((gridItem) => {
+    gridItem.addEventListener(
+      "mouseover",
+      (e) => {
+        e.target.style.backgroundColor = "black";
+      },
+      false
+    );
   });
 }
 
