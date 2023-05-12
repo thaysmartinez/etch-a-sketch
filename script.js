@@ -10,7 +10,6 @@ function generateGrid(size = 16, cssClass = "grid16") {
     gridItem.classList = "grid-item";
     grid.appendChild(gridItem);
   }
-  darkenGridItem();
 }
 
 function removeGrid() {
@@ -26,24 +25,21 @@ function changeSize() {
         case button.getAttribute("id") === "grid-16":
           removeGrid();
           generateGrid(16, "grid16");
-          sketch();
           break;
         case button.getAttribute("id") === "grid-32":
           removeGrid();
           generateGrid(32, "grid32");
-          sketch();
           break;
         case button.getAttribute("id") === "grid-64":
           removeGrid();
           generateGrid(64, "grid64");
-          sketch();
           break;
       }
     });
   });
 }
 
-function sketch() {
+function paintBlack() {
   const gridItems = document.querySelectorAll(".grid-item");
 
   gridItems.forEach((gridItem) => {
@@ -51,32 +47,59 @@ function sketch() {
       "mouseover",
       (e) => {
         e.target.style.backgroundColor = "rgb(0, 0, 0)";
-        // e.target.style.backgroundColor = getRandomColor();
       },
       false
     );
   });
 }
 
-function getRandomColor() {
+function getRainbowColor() {
   // Returns a random color from array of 5 possible colors
-  const choiceArray = ["#173F5F", "#20639B", "#3CAEA3", "#F6D55C", "#ED553B"];
+  const choiceArray = [
+    "#FF0000",
+    "#FF8700",
+    "#FFD300",
+    "#DEFF0A",
+    "#A1FF0A",
+    "#0AFF99",
+    "#0AEFFF",
+    "#147DF5",
+    "#580AFF",
+    "#BE0AFF",
+  ];
   var randomColor = choiceArray[Math.floor(Math.random() * choiceArray.length)];
-
+  console.log(randomColor);
   return randomColor;
 }
 
 function darkenGridItem() {
   const gridItems = document.querySelectorAll(".grid-item");
   gridItems.forEach((gridItem) => {
-    let enterEventCount = 0.1;
+    let gradingStep = 25;
+    let blackShade = 255 - gradingStep;
     gridItem.addEventListener("mouseenter", (e) => {
-      e.target.style.backgroundColor = `rgba(0,0,0,${enterEventCount}`;
-      console.log(enterEventCount);
-      enterEventCount += 0.1;
+      e.target.style.backgroundColor = `rgb(${blackShade},
+        ${blackShade},${blackShade})`;
+      blackShade -= gradingStep;
+    });
+  });
+}
+
+function paintGridRainbow() {
+  const gridItems = document.querySelectorAll(".grid-item");
+  gridItems.forEach((gridItem) => {
+    let rainbowColor = getRainbowColor();
+    gridItem.addEventListener("mouseenter", (e) => {
+      e.target.style.backgroundColor = rainbowColor;
     });
   });
 }
 
 generateGrid();
 changeSize();
+
+const shading = document.querySelector(".shading");
+shading.addEventListener("click", darkenGridItem);
+
+const rainbow = document.querySelector(".rainbow");
+rainbow.addEventListener("click", paintGridRainbow);
