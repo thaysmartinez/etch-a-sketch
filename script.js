@@ -10,7 +10,7 @@ function generateGrid(size = 16, cssClass = "grid16") {
     gridItem.classList = "grid-item";
     grid.appendChild(gridItem);
   }
-  sketch();
+  darkenGridItem();
 }
 
 function removeGrid() {
@@ -50,8 +50,8 @@ function sketch() {
     gridItem.addEventListener(
       "mouseover",
       (e) => {
-        // e.target.style.backgroundColor = "black";
-        e.target.style.backgroundColor = getRandomColor();
+        e.target.style.backgroundColor = "rgb(0, 0, 0)";
+        // e.target.style.backgroundColor = getRandomColor();
       },
       false
     );
@@ -59,11 +59,23 @@ function sketch() {
 }
 
 function getRandomColor() {
-  // Returns a random value from array of 3 possible values
-  const choiceArray = ["#173F5F", "#20639B", "#3cAeA3", "#F6D55C", "#ED553B"];
+  // Returns a random color from array of 5 possible colors
+  const choiceArray = ["#173F5F", "#20639B", "#3CAEA3", "#F6D55C", "#ED553B"];
   var randomColor = choiceArray[Math.floor(Math.random() * choiceArray.length)];
 
   return randomColor;
+}
+
+function darkenGridItem() {
+  const gridItems = document.querySelectorAll(".grid-item");
+  gridItems.forEach((gridItem) => {
+    let enterEventCount = 0.1;
+    gridItem.addEventListener("mouseenter", (e) => {
+      e.target.style.backgroundColor = `rgba(0,0,0,${enterEventCount}`;
+      console.log(enterEventCount);
+      enterEventCount += 0.1;
+    });
+  });
 }
 
 generateGrid();
