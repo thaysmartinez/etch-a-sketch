@@ -55,18 +55,7 @@ function paintBlack() {
 
 function getRainbowColor() {
   // Returns a random color from array of 5 possible colors
-  const choiceArray = [
-    "#FF0000",
-    "#FF8700",
-    "#FFD300",
-    "#DEFF0A",
-    "#A1FF0A",
-    "#0AFF99",
-    "#0AEFFF",
-    "#147DF5",
-    "#580AFF",
-    "#BE0AFF",
-  ];
+  const choiceArray = ["#FF595E", "#FFCA3A", "#8AC926", "#1982C4", "#6A4C93"];
   var randomColor = choiceArray[Math.floor(Math.random() * choiceArray.length)];
   console.log(randomColor);
   return randomColor;
