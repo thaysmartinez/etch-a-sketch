@@ -1,11 +1,33 @@
 body {
   padding: 0px;
   margin: 0px;
+  height: 100vh;
+  background-color: #264653;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header,
+.footer {
+  padding: 20px;
+  font-family: "Caveat Brush", Verdana, sans-serif;
+  color: #e9c46a;
+}
+
+.header {
+  font-size: 72px;
+}
+
+.footer {
+  font-size: 22px;
+}
+
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #3a2e39;
 }
 
 #grid,
@@ -21,7 +43,7 @@ body {
 #grid {
   border-radius: 10px;
   padding: 10px;
-  background-color: #f15152;
+  background-color: #e76f51;
 }
 
 .grid16 {
@@ -46,7 +68,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 300px;
+  width: 250px;
   justify-content: flex-start;
   gap: 20px;
 }
@@ -58,5 +80,16 @@ body {
   border: 1px solid;
   font-weight: 600;
   color: #ebebeb;
-  background-color: #519e8a;
+  background-color: #2a9d8f;
+  font-size: 16px;
+  transition: background-color 0.2s ease-in, width 0.2s ease-in,
+    height 0.2s ease-in, font-size 0.2s, color 0.2s;
+}
+
+.btn-grid:hover {
+  height: 52px;
+  width: 208px;
+  font-size: 17px;
+  border-color: #fff;
+  background-color: #f4a261;
 }
