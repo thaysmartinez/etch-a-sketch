@@ -57,7 +57,6 @@ function getRainbowColor() {
   // Returns a random color from array of 5 possible colors
   const choiceArray = ["#FF595E", "#FFCA3A", "#8AC926", "#1982C4", "#6A4C93"];
   var randomColor = choiceArray[Math.floor(Math.random() * choiceArray.length)];
-  console.log(randomColor);
   return randomColor;
 }
 
@@ -93,5 +92,11 @@ shading.addEventListener("click", darkenGridItem);
 const rainbow = document.querySelector(".rainbow");
 rainbow.addEventListener("click", paintGridRainbow);
 
-// const reset = document.querySelector(".reset");
-// reset.addEventListener("click", generateGrid); // this doesn't work
+function refreshPage() {
+  removeGrid();
+  generateGrid();
+  console.log("hi");
+}
+
+const reset = document.querySelector(".reset");
+reset.addEventListener("click", refreshPage); // this doesn't work
