@@ -10,6 +10,7 @@ function generateGrid(size = 16, cssClass = "grid16") {
     gridItem.classList = "grid-item";
     grid.appendChild(gridItem);
   }
+  paintBlack();
 }
 
 function removeGrid() {
@@ -25,14 +26,17 @@ function changeSize() {
         case button.getAttribute("id") === "grid-16":
           removeGrid();
           generateGrid(16, "grid16");
+          paintBlack();
           break;
         case button.getAttribute("id") === "grid-32":
           removeGrid();
           generateGrid(32, "grid32");
+          paintBlack();
           break;
         case button.getAttribute("id") === "grid-64":
           removeGrid();
           generateGrid(64, "grid64");
+          paintBlack();
           break;
       }
     });
@@ -83,20 +87,28 @@ function paintGridRainbow() {
   });
 }
 
-generateGrid();
-changeSize();
-
-const shading = document.querySelector(".shading");
-shading.addEventListener("click", darkenGridItem);
-
-const rainbow = document.querySelector(".rainbow");
-rainbow.addEventListener("click", paintGridRainbow);
-
-function refreshPage() {
+function resetGrid() {
   removeGrid();
   generateGrid();
-  console.log("hi");
 }
 
-const reset = document.querySelector(".reset");
-reset.addEventListener("click", refreshPage); // this doesn't work
+function activateShading() {
+  const shading = document.querySelector(".shading");
+  shading.addEventListener("click", darkenGridItem);
+}
+
+function activateRainbow() {
+  const rainbow = document.querySelector(".rainbow");
+  rainbow.addEventListener("click", paintGridRainbow);
+}
+
+function activateReset() {
+  const reset = document.querySelector(".reset");
+  reset.addEventListener("click", resetGrid);
+}
+
+generateGrid();
+changeSize();
+activateShading();
+activateRainbow();
+activateReset();
