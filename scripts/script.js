@@ -80,7 +80,6 @@ function darkenGridItem() {
 function paintGridRainbow() {
   const gridItems = document.querySelectorAll(".grid-item");
   gridItems.forEach((gridItem) => {
-    // let rainbowColor = getRainbowColor();
     gridItem.addEventListener("mouseenter", (e) => {
       e.target.style.backgroundColor = getRainbowColor();
     });
