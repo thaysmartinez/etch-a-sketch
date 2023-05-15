@@ -3,7 +3,7 @@
 Digital version of the toy Etch-a-Sketch. Developed using HTML, CSS and Vanilla
 JavaScript
 
-🔗 (Live preview)[https://thaysmartinez.github.io/etch-a-sketch/]
+🔗 [Live preview](https://thaysmartinez.github.io/etch-a-sketch/)
 
 ## How to use
 
@@ -33,7 +33,7 @@ JavaScript
 
 - DOM Manipulation
 - Grid layout
-- removeChild() method
+- `removeChild()` method
 - `mouseenter` and `mouseover` events
 - CSS pseudo-classes and transitions
 - Favicons
